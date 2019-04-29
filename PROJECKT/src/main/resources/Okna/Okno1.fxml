@@ -3,8 +3,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane fx:id="Stack1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Kontrolery.KontrolerOkna1">
+<StackPane fx:id="Stack" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Kontrolery.KontrolerOkna1">
    <children>
-      <Pane fx:id="Stack" prefHeight="387.0" prefWidth="473.0" />
+      <Pane fx:id="Stack1" prefHeight="482.0" prefWidth="754.0" />
    </children>
 </StackPane>

@@ -10,12 +10,13 @@ import javafx.scene.layout.StackPane;
 
 public class KontrolerOkna1 {
 	@FXML
-	private StackPane Stack1;
+	private StackPane Stack;
 	@FXML
 	public void initialize() {
 	loadScreen();
 	}
-	public void loadScreen() {
+	 
+ 	public void loadScreen() {
 		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/Okna/Okno2.fxml"));	
 		Pane pane = null;
 		try {
@@ -29,7 +30,7 @@ public class KontrolerOkna1 {
 			setScreen(pane);
 	}
 	public void setScreen(Pane pane) {
-		Stack1.getChildren().clear();
-		Stack1.getChildren().add(pane);
+		Stack.getChildren().clear();
+		Stack.getChildren().add(pane);
 	}
  } 

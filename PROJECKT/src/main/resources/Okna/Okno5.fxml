@@ -22,6 +22,6 @@
       </TableView>
       <Button layoutX="49.0" layoutY="345.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="92.0" text="Dodaj" />
       <Button layoutX="269.0" layoutY="347.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="92.0" text="Usuń" />
-      <Button fx:id="back" layoutX="500.0" layoutY="349.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="92.0" text="Cofnij" />
+      <Button fx:id="back" layoutX="500.0" layoutY="349.0" mnemonicParsing="false" onAction="#back" prefHeight="29.0" prefWidth="92.0" text="Zamkij" />
    </children>
 </Pane>

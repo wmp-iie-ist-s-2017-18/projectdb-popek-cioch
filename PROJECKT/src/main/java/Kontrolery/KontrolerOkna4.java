@@ -9,8 +9,7 @@ public class KontrolerOkna4 {
 		@FXML
 		public void back1() {
 			
-			kontrolerOkna1.loadScreen();
-			 
+			 System.exit(0);
 		
 	}
 		public void setKontrolerOkna1(KontrolerOkna1 kontrolerOkna1) {

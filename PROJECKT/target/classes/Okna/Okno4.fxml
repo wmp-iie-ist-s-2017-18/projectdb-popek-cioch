@@ -15,6 +15,6 @@
       </TreeTableView>
       <Button layoutX="477.0" layoutY="86.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="132.0" text="Dodaj" />
       <Button layoutX="477.0" layoutY="199.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="132.0" text="Usuń" />
-      <Button layoutX="493.0" layoutY="387.0" mnemonicParsing="false" onAction="#back1" prefHeight="34.0" prefWidth="116.0" text="Cofnij" />
+      <Button layoutX="493.0" layoutY="387.0" mnemonicParsing="false" onAction="#back1" prefHeight="34.0" prefWidth="116.0" text="Zamknij" />
    </children>
 </Pane>

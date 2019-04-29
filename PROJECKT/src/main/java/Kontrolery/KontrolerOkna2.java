@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 public class KontrolerOkna2 {
@@ -12,6 +14,7 @@ public class KontrolerOkna2 {
 	
 	@FXML
 	public void otwórz1() {
+		
 		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/Okna/Okno3.fxml"));
 		Pane pane = null;
 		try {
@@ -25,8 +28,8 @@ public class KontrolerOkna2 {
 		 kontrolerOkna1.setScreen(pane);
 			 
 	}
-
 	@FXML
+ 
 	public void otwórz2() {FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/Okna/Okno4.fxml"));
 	Pane pane = null;
 	try {
@@ -43,6 +46,7 @@ public class KontrolerOkna2 {
 
 	@FXML
 	public void otwórz3() {
+		 System.exit(0);
 		
 		
 	}
@@ -51,6 +55,20 @@ public class KontrolerOkna2 {
 		this.kontrolerOkna1 = kontrolerOkna1;
 	}
 
+	@FXML
+	public void otwórz4() {FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/Okna/Okno5.fxml"));
+	Pane pane = null;
+	try {
+		 pane = loader.load();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	 KontrolerOkna5 kontrolerOkna5 = loader.getController();
+	  
+	 kontrolerOkna1.setScreen(pane);
+		 
+}
 	 
 	}
  
