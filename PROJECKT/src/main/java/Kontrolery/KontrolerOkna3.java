@@ -2,6 +2,7 @@ package Kontrolery;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,8 +10,8 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+ 
 import Connect.ConnectionClass;
-import Projeckt.Uczniowie;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,68 +23,117 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 public class KontrolerOkna3 implements Initializable {
-	@FXML
-	private Label label;
-	@FXML
-	private TableView<Uczniowie> tableUczniowie;
-	@FXML
-	private TableColumn<Uczniowie, String> kolumnaimie;
-	@FXML
-	private TableColumn<Uczniowie, String> kolumnanazwisko;
-	@FXML
-	private TableColumn<Uczniowie, String> kolumnaszkola;
-	@FXML
-	private TableColumn<Uczniowie, String> kolumnawiek;
+	 Connection conn;
+	ResultSet rs = null;
+	PreparedStatement pst =null;
+	
 	@FXML
 	private Button dodaj;
-	
-	private ObservableList<Uczniowie>data;
-	private ConnectionClass dc;
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-	dc=new ConnectionClass();  	
-	}
-	
-	
-	
+	@FXML
+	private Button delete;
+	@FXML
+	public void setKontrolerOkna1(KontrolerOkna1 kontrolerOkna1) {
+		}
+	@FXML
+	private TableView<Uczniowie>  kolumnaUczniowie;
+	@FXML
+	private TableColumn<Uczniowie, String> kolumnaNr;
+	@FXML
+	private TableColumn<Uczniowie, String> kolumnaImie;
+	@FXML
+	private TableColumn<Uczniowie, String> kolumnaNazwisko;
+	@FXML
+	private TableColumn<Uczniowie, String> kolumnaOcena;
+	@FXML
+	private TableColumn<Uczniowie, String> kolumnaPesel;
+	@FXML 
+	private TextField text1;
+	private TextField text2;
+	private TextField text3;
+	private TextField text4;
+	private TextField text5;
 	
 	private KontrolerOkna1 kontrolerOkna1;
 	@FXML
 	public void back() {
  
 		 System.exit(0);
-		
+ 		
 	
 }
-	
-	public void dodaj(ActionEvent event)  {
-	  try {
-		Connection conn=dc.Connect();
-	  data= FXCollections.observableArrayList();
-	   ResultSet rs=conn.createStatement().executeQuery("SELECT * FROM zal");
-	while (rs.next()) {
-		data.add(new Uczniowie(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)));
-		
-	}	
+	public void onEdit(TableColumn.CellDataFeatures<Uczniowie, String> uczniowieStringEditEvent){
+ 
 	}
-	  catch (SQLException ex) {
-		System.err.println("Error"+ex);
-	  
-	
-	
+	public void dodaj(ActionEvent event)    {
+		 String imie = text1.getText();
+		 String nazwisko = text2.getText();
+		 String Ocena = text3.getText();
+		 String Pesel = text4.getText();
+		 try {
+		 String query = "INSERT INTO `uczniowie`(`Nr.`, `Imie`, `Nazwisko`, `Pesel`, `Oceny`) VALUES (?,?,?,?,?)";
+		 
+			pst = conn.prepareStatement(query);
+			
+			pst.setString(1, "");
+			pst.setString(2, text1.getText());
+			pst.setString(3, text2.getText());
+			pst.setString(4, text3.getText());
+			pst.setString(5, text4.getText());
+			pst.execute();
+			pst.close();
+		 
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 
 	}
-	  kolumnaimie.setCellValueFactory(new PropertyValueFactory<>("imie"));
-	  kolumnanazwisko.setCellValueFactory(new PropertyValueFactory<>("nazwisko")); 
-	  kolumnaszkola.setCellValueFactory(new PropertyValueFactory<>("szkola"));
-	  kolumnawiek.setCellValueFactory(new PropertyValueFactory<>("wiek"));
-	  tableUczniowie.setItems(null);
-	  tableUczniowie.setItems(data);
+	 
 
-	}
-	public void setKontrolerOkna1(KontrolerOkna1 kontrolerOkna1) {
-		this.kontrolerOkna1 = kontrolerOkna1;
+	 
+	 
+	ObservableList<Uczniowie> oblist = FXCollections.observableArrayList(
+			new Uczniowie("Kamil","Jan","5","6","5648") 
+			 
+			);
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
+		
+		kolumnaUczniowie.setEditable(true);
+		kolumnaNr.setCellFactory(TextFieldTableCell.forTableColumn());
+		
+		try {
+		Connection con = ConnectionClass.getConnetion();
+		 
+			ResultSet rs = con.createStatement().executeQuery("select * from uczniowie");
+		
+		while (rs.next()) {
+			oblist.add(new Uczniowie(rs.getString("Nr."),rs.getString("Imie"),rs.getString("Nazwisko"),rs.getString("Pesel"),rs.getString("Oceny")));
+		
+		
+		}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	 
+			
+		
+		kolumnaNr.setCellValueFactory(new PropertyValueFactory<>("Nr"));
+		kolumnaImie.setCellValueFactory(new PropertyValueFactory<>("Imie"));
+		kolumnaNazwisko.setCellValueFactory(new PropertyValueFactory<>("Nazwisko"));
+		kolumnaPesel.setCellValueFactory(new PropertyValueFactory<>("Pesel"));
+		kolumnaOcena.setCellValueFactory(new PropertyValueFactory<>("Oceny"));
+
+	 
+		kolumnaUczniowie.setItems(oblist);
+		 
 	}
 	
 	

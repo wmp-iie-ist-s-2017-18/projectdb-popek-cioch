@@ -54,21 +54,7 @@ public class KontrolerOkna2 {
 	public void setKontrolerOkna1(KontrolerOkna1 kontrolerOkna1) {
 		this.kontrolerOkna1 = kontrolerOkna1;
 	}
-
-	@FXML
-	public void otwórz4() {FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/Okna/Okno5.fxml"));
-	Pane pane = null;
-	try {
-		 pane = loader.load();
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	 KontrolerOkna5 kontrolerOkna5 = loader.getController();
-	  
-	 kontrolerOkna1.setScreen(pane);
-		 
-}
+ 
 	 
 	}
  

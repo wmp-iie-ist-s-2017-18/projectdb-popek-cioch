@@ -23,12 +23,6 @@
             <Font name="System Italic" size="16.0" />
          </font>
       </Label>
-      <Button layoutX="154.0" layoutY="186.0" mnemonicParsing="false" onAction="#otwórz4" prefHeight="42.0" prefWidth="104.0" text="Oceny" />
-      <Label layoutX="32.0" layoutY="191.0" prefHeight="32.0" prefWidth="116.0" text="Oceny uczniów:">
-         <font>
-            <Font name="System Italic" size="16.0" />
-         </font>
-      </Label>
       <HBox layoutX="339.0" layoutY="16.0" prefHeight="350.0" prefWidth="313.0">
          <children>
             <ImageView fitHeight="286.0" fitWidth="283.0" pickOnBounds="true" preserveRatio="true">
