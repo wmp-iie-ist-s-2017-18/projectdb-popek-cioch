@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="648.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Kontrolery.KontrolerOkna2">
+   <children>
+      <Button layoutX="117.0" layoutY="256.0" mnemonicParsing="false" onAction="#otwórz3" prefHeight="32.0" prefWidth="74.0" text="Wyjscie" />
+      <Button layoutX="154.0" layoutY="116.0" mnemonicParsing="false" onAction="#otwórz2" prefHeight="42.0" prefWidth="104.0" text="Oceny" />
+      <Button layoutX="154.0" layoutY="45.0" mnemonicParsing="false" onAction="#otwórz1" prefHeight="42.0" prefWidth="104.0" text="Uczniowie" textAlignment="CENTER" />
+      <Label layoutX="32.0" layoutY="45.0" prefHeight="42.0" prefWidth="104.0" text="Lista uczniów:">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="121.0" prefHeight="32.0" prefWidth="131.0" text="Oceny uczniów:">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font>
+      </Label>
+      <HBox layoutX="339.0" layoutY="16.0" prefHeight="350.0" prefWidth="313.0">
+         <children>
+            <ImageView fitHeight="286.0" fitWidth="283.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@styles/old-school.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </children>
+</Pane>
